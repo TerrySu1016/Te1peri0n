@@ -1,0 +1,16 @@
+<!--page/profiles/profiles.wxml-->
+<view class="container">
+  <scroll-view scroll-y="true" style="height: 100%;">
+    <view class="line"></view>
+    <view class="item" wx:for="{{profiles}}" wx:key="index">
+      <button class="user" bindtap="pop" data-index="{{index}}">
+        <image class = "profile" src="{{item['img']}}"></image>
+        <view class="desc">
+          <text class="name">{{item['name']}}</text>
+          <text class="info">{{item['desc']}}</text>
+        </view>
+      </button>
+      <view class="line"></view>
+    </view>
+  </scroll-view>
+</view>

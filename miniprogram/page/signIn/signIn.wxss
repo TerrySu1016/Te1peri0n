@@ -1,0 +1,91 @@
+/* page/signIn/signIn.wxss */
+.container {
+  height: 100vh;
+  width: 100%;
+  background-color: #ffffff
+}
+
+.icon {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  height: 20%;
+  width: 46%;
+  transform: translate(-50%, 0)
+}
+
+.welcome {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  width: 100%;
+  font-size: 24px;
+  font-weight: bold;
+  transform: translate(-50%, 0);
+}
+
+.instr {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  width: 100%;
+  font-size: 16px;
+  color: #a8a8a8;
+  transform: translate(-50%, 40px);
+}
+
+.input1 {
+  position: absolute;
+  left: 50% !important;
+  top: 30% !important;
+  width: 75%;
+  height: 20px;
+  padding: 10px;
+  padding-left: 30px;
+  border-radius: 20px;
+  background-color: #f3f3f3;
+  transform: translate(-50%, 90px);
+}
+
+.input2 {
+  position: absolute;
+  left: 50% !important;
+  top: 30% !important;
+  width: 75%;
+  height: 20px;
+  padding: 10px;
+  padding-left: 30px;
+  border-radius: 20px;
+  background-color: #f3f3f3;
+  transform: translate(-50%, 150px);
+}
+
+.submit {
+  position: absolute;
+  left: 50% !important;
+  top: 30% !important;
+  width: 60% !important;
+  height: 40px !important;
+  border-radius: 20px;
+  background-color: #BCD4DE;
+  transform: translate(-50%, 220px);
+}
+
+.make {
+  position: absolute;
+  bottom: 18%;
+  left: 50%;
+  transform: translate(-50%, -20px)
+}
+
+.register {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  height: 5%;
+  transform: translate(-50%, -20px);
+}
