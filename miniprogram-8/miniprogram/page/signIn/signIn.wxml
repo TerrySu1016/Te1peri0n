@@ -1,0 +1,11 @@
+<!--page/signIn/signIn.wxml-->
+<view class="container">
+  <image class="icon" src="/image/logo.png"></image>
+  <view class="welcome">Welcome to Telperion!</view>
+  <view class="instr">Please sign in</view>
+  <input class="input1" placeholder="Username" bindinput="onInputChange1" value="{{input1}}"></input>
+  <input class="input2" placeholder="Password" bindinput="onInputChange2" value="{{input2}}"></input>
+  <button class="submit" bindtap="onSubmit">Log In</button>
+  <view class="make">Don't have an account?</view>
+  <button class="register" bindtap="toMake">Sign Up</button>
+</view>

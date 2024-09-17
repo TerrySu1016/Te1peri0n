@@ -1,0 +1,19 @@
+<!--page/askUser/askUser.wxml-->
+<view class="container">
+  <image class="icon" src="/image/logo.png"></image>
+  <view class="welcome">You're almost there!</view>
+  <view class="instr">Let's find your match</view>
+  <input class="input1" placeholder="Country of choice" bindinput="onInputChange1" value="{{input1}}"></input>
+  <!-- <input class="input2" placeholder="Year" bindinput="onInputChange2" value="{{input2}}"></input> -->
+  <view class="input2" wx:if="{{!selected}}">Year</view>
+  <view class="input2" wx:if="{{selected}}" style="color:black">{{selected}}</view>
+  <button class="over2" bindtap="trigger"></button>
+  <radio-group wx:if="{{showChoice}}" class="pop" bindchange="onRadioChange">
+    <label wx:for="{{options}}" wx:key="index">
+      <radio class="picks" value="{{item.value}}" checked="{{item.checked}}">{{item.name}}</radio>
+    </label>
+  </radio-group>
+  <input class="input3" placeholder="Intended Major" bindinput="onInputChange3" value="{{input3}}"></input>
+  <input class="input4" placeholder="Dream School" bindinput="onInputChange4" value="{{input4}}"></input>
+  <button class="submit" bindtap="onSubmit">Register</button>
+</view>

@@ -1,0 +1,12 @@
+<!--page/apply/apply.wxml-->
+<view class="container">
+  <image class="icon" src="/image/logo.png"></image>
+  <view class="welcome">We'd love to have you!</view>
+  <view class="instr">Please fill in your application</view>
+  <input class="input1" placeholder="Username" bindinput="onInputChange1" value="{{input1}}"></input>
+  <input class="input2" placeholder="Password" bindinput="onInputChange2" value="{{input2}}"></input>
+  <input class="input3" placeholder="College/University" bindinput="onInputChange3" value="{{input3}}"></input>
+  <input class="input4" placeholder="Major" bindinput="onInputChange4" value="{{input4}}"></input>
+  <input class="input5" placeholder="Permission Code" bindinput="onInputChange5" value="{{input5}}"></input>
+  <button class="submit" bindtap="onSubmit">Register</button>
+</view>
