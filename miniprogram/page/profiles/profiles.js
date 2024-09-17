@@ -1,3 +1,4 @@
+const db = wx.cloud.database()
 // page/profiles/profiles.js
 Page({
 
@@ -5,8 +6,21 @@ Page({
    * Page initial data
    */
   data: {
-    profiles: [{'name': 'Terry Su', 'desc': 'UC Berkeley', 'img': '/image/play.png'}, {'name': 'Terry Su', 'desc': 'UC Berkeley', 'img': '/image/logo.png'}, {'name': 'Terry Su', 'desc': 'UC Berkeley', 'img': '/image/logo.png'}, {'name': 'Terry Su', 'desc': 'UC Berkeley', 'img': '/image/logo.png'}, {'name': 'Terry Su', 'desc': 'UC Berkeley', 'img': '/image/logo.png'}, {'name': 'Terry Su', 'desc': 'UC Berkeley', 'img': '/image/logo.png'}, {'name': 'Terry Su', 'desc': 'UC Berkeley', 'img': '/image/logo.png'}, {'name': 'Terry Su', 'desc': 'UC Berkeley', 'img': '/image/logo.png'}, {'name': 'Terry Su', 'desc': 'UC Berkeley', 'img': '/image/logo.png'}],
     show: true
+  },
+
+  getDataFromCloud() {
+    db.collection('advisors').get({
+      success: (res) => {
+        console.log('Data retrieved:', res.data);
+        this.setData({
+          profiles: res.data
+        });
+      },
+      fail: (err) => {
+        console.error('Error retrieving data:', err);
+      }
+    });
   },
 
   pop(e) {
@@ -21,7 +35,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
-
+    this.getDataFromCloud()
   },
 
   /**

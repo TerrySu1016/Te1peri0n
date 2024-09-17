@@ -1,3 +1,4 @@
+const db = wx.cloud.database()
 // page/signIn/signIn.js
 Page({
 
@@ -7,7 +8,6 @@ Page({
   data: {
     input1: '',
     input2: '',
-    whitelisted: {'test1': 'testpass', 'test2': 'testpass2'},
   },
 
   onInputChange1(e) {
@@ -22,49 +22,87 @@ Page({
     });
   },
 
-  onSubmit() {
-    if (this.data.whitelisted[this.data.input1]) {
-      if (this.data.whitelisted[this.data.input1] == this.data.input2) {
-        wx.redirectTo({
-          url: '/page/profiles/profiles',
-        })
-      } else {
-        wx.showToast({
-          title: 'Incorrect password',
-          icon: 'none'
-        })
+  search(keys, url) {
+    for (let i = 0; i < keys.length; i++) {
+      if (keys[i]['username'] == this.data.input1) {
+        if (keys[i]['password'] == this.data.input2) {
+          this.setData({fail: false})
+          wx.redirectTo({
+            url: url,
+          })
+          getApp().globalData.user = this.data.input1
+          console.log(getApp().globalData.user)
+          return
+        } else {
+          wx.showToast({
+            title: 'Incorrect password',
+            icon: 'none'
+          })
+          this.setData({
+            input1: '',
+            input2: ''
+          })
+          this.setData({fail: false})
+          return
+        }
       }
-    } else {
+    }
+    this.setData({fail: true})
+  },
+
+  onSubmit() {
+    const keys = this.data.whitelisted
+    const keys2 = this.data.whitelisted2
+    this.search(keys, '/page/profiles/profiles')
+    if (this.data.fail) {this.search(keys2, '/page/info-edit/info')}
+    if (this.data.fail) {
       wx.showToast({
-        title: 'Email not found',
+        title: 'Username not found',
         icon: 'none'
       })
+      this.setData({
+        input1: '',
+        input2: ''
+      })
     }
-    this.setData({
-      input1: '',
-      input2: ''
+  },
+
+  toMake() {
+    wx.redirectTo({
+      url: '/page/register/register',
     })
-    // const that = this
-    // wx.getUserProfile({
-    //   desc: 'We need you to fill this',
-    //   success: function(res) {
-    //     wx.showModal({
-    //       title: res,
-    //       content: res,
-    //       complete: (res) => {}
-    //     })
-    //     that.setData({info: res})
-    //   }
-    // })
-    // console.log("hi")
-    // this.data = that.data
+  },
+
+  getDataFromCloud() {
+    db.collection('users').get({
+      success: (res) => {
+        console.log('Data retrieved:', res.data);
+        this.setData({
+          whitelisted: res.data
+        });
+      },
+      fail: (err) => {
+        console.error('Error retrieving data:', err);
+      }
+    });
+    db.collection('advisors').get({
+      success: (res) => {
+        console.log('Data retrieved:', res.data);
+        this.setData({
+          whitelisted2: res.data
+        });
+      },
+      fail: (err) => {
+        console.error('Error retrieving data:', err);
+      }
+    });
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
-
+    this.getDataFromCloud()
   },
 
   /**

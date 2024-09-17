@@ -8,6 +8,44 @@ Page({
 
   },
 
+  onInputChange1(e) {
+    this.setData({
+      input1: e.detail.value
+    });
+  },
+
+  onInputChange2(e) {
+    this.setData({
+      input2: e.detail.value
+    });
+  },
+
+  onSubmit() {
+    //TO DO: REGISTER USER IN CLOUD
+    const user = this.data.input1
+    const pass = this.data.input2
+    if (user && pass) {
+      wx.redirectTo({
+        url: `/page/askUser/askUser?user=${user}&pass=${pass}`,
+      })
+    } else {
+      wx.showToast({
+        title: 'Items not filled',
+        icon: 'none'
+      })
+      this.setData({
+        input1: '',
+        input2: ''
+      })
+    }
+  },
+
+  toJoin() {
+    wx.redirectTo({
+      url: '/page/apply/apply',
+    })
+  },
+
   /**
    * Lifecycle function--Called when page load
    */

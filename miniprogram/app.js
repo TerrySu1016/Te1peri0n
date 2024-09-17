@@ -40,7 +40,7 @@ App({
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
       wx.cloud.init({
-        env: config.envId,
+        env: 'college-0g6a35wv1cd46d6c',
         traceUser: true,
       })
     }

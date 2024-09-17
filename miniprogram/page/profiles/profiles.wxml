@@ -4,10 +4,11 @@
     <view class="line"></view>
     <view class="item" wx:for="{{profiles}}" wx:key="index">
       <button class="user" bindtap="pop" data-index="{{index}}">
-        <image class = "profile" src="{{item['img']}}"></image>
+        <!-- <image class = "profile" src="{{item['img']}}"></image> -->
+        <image class = "profile" src="/image/logo.png"></image>
         <view class="desc">
           <text class="name">{{item['name']}}</text>
-          <text class="info">{{item['desc']}}</text>
+          <text class="info">{{item['college']}}</text>
         </view>
       </button>
       <view class="line"></view>

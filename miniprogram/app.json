@@ -8,7 +8,9 @@
     "page/API/index",
     "page/cloud/index",
     "page/extend/index",
-    "page/register/register"
+    "page/register/register",
+    "page/apply/apply",
+    "page/askUser/askUser"
   ],
   "subpackages": [
     {

@@ -88,4 +88,7 @@
   left: 50%;
   height: 5%;
   transform: translate(-50%, -20px);
+  color: #2861bd;
+  background-color: transparent;
+  padding: 0;
 }
