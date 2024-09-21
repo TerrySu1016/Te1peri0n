@@ -1,3 +1,4 @@
+const db = wx.cloud.database()
 // page/info/info.js
 Page({
 
@@ -5,17 +6,31 @@ Page({
    * Page initial data
    */
   data: {
-    profiles: [{'name': 'Terry Su', 'desc': 'UC Berkeley', 'img': '/image/play.png'}, {'name': 'Terry Su', 'desc': 'UC Berkeley', 'img': '/image/logo.png'}, {'name': 'Terry Su', 'desc': 'UC Berkeley', 'img': '/image/logo.png'}, {'name': 'Terry Su', 'desc': 'UC Berkeley', 'img': '/image/logo.png'}, {'name': 'Terry Su', 'desc': 'UC Berkeley', 'img': '/image/logo.png'}, {'name': 'Terry Su', 'desc': 'UC Berkeley', 'img': '/image/logo.png'}, {'name': 'Terry Su', 'desc': 'UC Berkeley', 'img': '/image/logo.png'}, {'name': 'Terry Su', 'desc': 'UC Berkeley', 'img': '/image/logo.png'}, {'name': 'Terry Su', 'desc': 'UC Berkeley', 'img': '/image/logo.png'}],
     exp: [["Frontend Developer", "bilibili Group", "Jun 2024 - Aug 2024", "During my internship, I was responsible for an innovative 3D animation project using the company's built-in bilibili/chronos-pkg rendering engine."], ["Frontend Developer", "bilibili Group", "Jun 2024 - Aug 2024", "During my internship, I was responsible for an innovative 3D animation project using the company's built-in bilibili/chronos-pkg rendering engine."], ["Frontend Developer", "bilibili Group", "Jun 2024 - Aug 2024", "During my internship, I was responsible for an innovative 3D animation project using the company's built-in bilibili/chronos-pkg rendering engine."]],
     edu: [["UC Berkeley", "BA Data Science", "Aug 2022 - May 2026", "Activities and societies: CS61A, CS61B, DATA8, MATH 54，DATA100, MATH53, UGBA102A,INDENG120"], ["UC Berkeley", "BA Data Science", "Aug 2022 - May 2026", "Activities and societies: CS61A, CS61B, DATA8, MATH 54，DATA100, MATH53, UGBA102A,INDENG120"], ["UC Berkeley", "BA Data Science", "Aug 2022 - May 2026", "Activities and societies: CS61A, CS61B, DATA8, MATH 54，DATA100, MATH53, UGBA102A,INDENG120"]]
+  },
+
+  getDataFromCloud(x) {
+    console.log(x)
+    db.collection('advisors').where({username: x}).get({
+      success: (res) => {
+        console.log('Data retrieved:', res.data[0]);
+        this.setData({
+          profile: res.data[0]
+        });
+      },
+      fail: (err) => {
+        console.error('Error retrieving data:', err);
+      }
+    });
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
-    const passed = parseInt(options.data)
-    this.setData({passed: passed})
+    const passed = options.data
+    this.getDataFromCloud(passed)
   },
 
   /**

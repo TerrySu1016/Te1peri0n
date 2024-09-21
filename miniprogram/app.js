@@ -4,7 +4,6 @@ global.isDemo = true
 App({
   
   onLaunch(opts, data) {
-    //I play league bro
     // const that = this;
     // const canIUseSetBackgroundFetchToken = wx.canIUse('setBackgroundFetchToken')
     // if (canIUseSetBackgroundFetchToken) {

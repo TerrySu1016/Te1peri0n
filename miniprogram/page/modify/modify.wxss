@@ -1,0 +1,74 @@
+/* page/modify/modify.wxss */
+.container {
+  height: 100vh;
+  width: 100%;
+  background-color: #ffffff
+}
+
+.header {
+  font-size: 20px;
+  font-weight: bold;
+  /* margin-bottom: 10px;
+  margin-top: 10px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit {
+  height: 30px !important;
+  width: 30px !important;
+  background-color: #ffffff;
+  padding: 0;
+  transform: translate(120px, 0)
+}
+
+.fill {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.gap2 {
+  width: 100%;
+  height: 1px;
+  background-color: #F3F4F6;
+}
+
+.excon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 90%;
+}
+
+.exp {
+  width: 100%;
+}
+
+.pos {
+  font-weight: bold;
+}
+
+.comp {
+  font-size: 14px;
+}
+
+.date {
+  font-size: 14px;
+  color: #868686;
+  margin-bottom: 10px;
+}
+
+.yap {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.submit {
+  position: absolute;
+  left: 25% !important;
+  bottom: 2% !important;
+  width: 50% !important;
+  height: 6% !important;
+  padding: 0 !important;
+}

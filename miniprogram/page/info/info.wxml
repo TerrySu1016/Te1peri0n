@@ -1,9 +1,10 @@
 <!--page/info/info.wxml-->
 <view class="container">
   <view class="top-bar"></view>
-  <image src="{{profiles[passed]['img']}}" class="face"></image>
-  <view class="name">{{profiles[passed]['name']}}</view>
-  <view class="desc">{{profiles[passed]['desc']}}</view>
+  <image wx:if="{{profile['img']}}" src="{{profile['img']}}" class="face"></image>
+  <image wx:if="{{!profile['img']}}" src="/image/logo.png" class="face"></image>
+  <view class="name">{{profile['name']}}</view>
+  <view class="desc">{{profile['college']}}</view>
   <view class="gap" style="position: absolute; top: 225px; left: 0"></view>
   <scroll-view class="excon" scroll-y="true">
     <view class="header">Experience</view>

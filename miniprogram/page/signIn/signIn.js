@@ -54,7 +54,7 @@ Page({
     const keys = this.data.whitelisted
     const keys2 = this.data.whitelisted2
     this.search(keys, '/page/profiles/profiles')
-    if (this.data.fail) {this.search(keys2, '/page/info-edit/info')}
+    if (this.data.fail) {this.search(keys2, `/page/info-edit/info?data=${this.data.input1}`)}
     if (this.data.fail) {
       wx.showToast({
         title: 'Username not found',

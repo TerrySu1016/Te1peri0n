@@ -1,20 +1,14 @@
-<!--page/info/info.wxml-->
+<!--page/modify/modify.wxml-->
 <view class="container">
-  <view class="top-bar"></view>
-  <image wx:if="{{profile['img']}}" src="{{profile['img']}}" class="face"></image>
-  <image wx:if="{{!profile['img']}}" src="/image/logo.png" class="face"></image>
-  <view class="name">{{profile['name']}}</view>
-  <view class="desc">{{profile['college']}}</view>
-  <view class="gap" style="position: absolute; top: 225px; left: 0"></view>
   <scroll-view class="excon" scroll-y="true">
-    <view class="header">
+    <view wx:if="{{page == 'exp'}}" class="header">
       <text>Experience</text>
       <button class="edit" bindtap="changeExp">
         <image class="fill" src="/image/plus.png"></image>
       </button>
     </view>
-    <view class="gap2"></view>
-    <view wx:for="{{exp}}" wx:key="index">
+    <view wx:if="{{page == 'exp'}}" class="gap2"></view>
+    <view wx:if="{{page == 'exp'}}" wx:for="{{exp}}" wx:key="index">
       <view class="exp">
         <view class="pos">{{item[0]}}</view>
         <view class="comp">{{item[1]}}</view>
@@ -23,15 +17,14 @@
       </view>
       <view class="gap2"></view>
     </view>
-    <view class="gap"></view>
-    <view class="header">
+    <view wx:if="{{page == 'edu'}}" class="header">
       <text>Education</text>
       <button class="edit" bindtap="changeEdu">
         <image class="fill" src="/image/plus.png"></image>
       </button>
     </view>
-    <view class="gap2"></view>
-    <view wx:for="{{edu}}" wx:key="index">
+    <view wx:if="{{page == 'edu'}}" class="gap2"></view>
+    <view wx:if="{{page == 'edu'}}" wx:for="{{edu}}" wx:key="index">
       <view class="exp">
         <view class="pos">{{item[0]}}</view>
         <view class="comp">{{item[1]}}</view>
@@ -41,4 +34,5 @@
       <view class="gap2"></view>
     </view>
   </scroll-view>
+  <button class="submit">SUBMIT</button>
 </view>

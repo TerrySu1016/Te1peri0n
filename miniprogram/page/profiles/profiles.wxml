@@ -3,7 +3,7 @@
   <scroll-view scroll-y="true" style="height: 100%;">
     <view class="line"></view>
     <view class="item" wx:for="{{profiles}}" wx:key="index">
-      <button class="user" bindtap="pop" data-index="{{index}}">
+      <button class="user" bindtap="pop" data-index="{{item['username']}}">
         <!-- <image class = "profile" src="{{item['img']}}"></image> -->
         <image class = "profile" src="/image/logo.png"></image>
         <view class="desc">

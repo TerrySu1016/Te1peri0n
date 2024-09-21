@@ -10,7 +10,8 @@
     "page/extend/index",
     "page/register/register",
     "page/apply/apply",
-    "page/askUser/askUser"
+    "page/askUser/askUser",
+    "page/modify/modify"
   ],
   "subpackages": [
     {
